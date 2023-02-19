@@ -1,0 +1,8 @@
+function validateForm() {
+  const nombreField = document.getElementById("nombre");
+  const emailField = document.getElementById("email");
+  const claveField = document.getElementById("clave");
+  const confirmeClaveField = document.getElementById("confirme_clave");
+
+  // Check if nombre field is valid (only letters)
+  const nombreRegex = /^[A-Za-záéíóú
