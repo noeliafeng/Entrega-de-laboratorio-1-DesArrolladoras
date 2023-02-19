@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CREATE ACCOUNT</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>CREATE ACCOUNT</h2>
+      <form action="#" method="POST" onsubmit="return validateForm()">
+        <div class="input-container">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required pattern="^[A-Za-záéíóúñÑÁÉÍÓÚ ]+$">
+          <p class="error-message">Nombre must contain only letters</p>
+        </div>
+
+        <div class="input-container">
+          <label for="email">EMAIL:</label>
+          <input type="email" id="email" name="email" required>
+          <p class="error-message">Invalid email address</p>
+        </div>
+
+        <div class="input-container">
+          <label for="clave">CLAVE:</label>
+          <input type="password" id="clave" name="clave" minlength="8" required>
+          <p class="error-message">Key must be at least 8 characters long</p>
+        </div>
+
+        <div class="input-container">
+          <label for="confirme_clave">CONFIRME SU CLAVE:</label>
+          <input type="password" id="confirme_clave" name="confirme_clave" minlength="8" required>
+          <p class="error-message">Key and Confirm Key must match</p>
+        </div>
+
+        <button type="submit" class="send-button">ENVIAR</button>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+body {
+  background-color: #333333;
+}
+
+.form-container {
+  width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+}
+
+h2 {
+  color: #ffffff;
+}
+
+.input-container {
+  margin: 20px 0;
+}
+
+label {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+input:valid {
+  border: 2px solid green;
+  background-image: url("images/check.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+input:invalid {
+  border: 2px solid red;
+  background-image: url("images/cross.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.error-message {
+  color: red;
+  margin: 5px 0;
+}
+
+.send-button {
+  background-color: #0099ff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+function validateForm() {
+  const nombreField = document.getElementById("nombre");
+  const emailField = document.getElementById("email");
+  const claveField = document.getElementById("clave");
+  const confirmeClaveField = document.getElementById("confirme_clave");
+
+  // Check if nombre field is valid (only letters)
+  const nombreRegex = /^[A-Za-záéíóú
